@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>SPARK AI</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+        <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}" /></noscript>
+        <style>
+            #container {
+                margin: 0px auto;
+                width:50em;
+                height: 30em;
+                border: 10px #92b7e0 solid;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                background-color: #f8f9fa;
+            }
+            #upload-box {
+                width: 100%;
+                height: 100%;
+                background-color: #a5ead7;
+                border: 2px dashed #ccc;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                transition: background-color 0.3s;
+            }
+            #upload-box.dragover {
+                background-color: #e6f7f1;
+            }
+            #upload-box p {
+                color: #888;
+                font-size: 1.2em;
+            }
+            #file-input {
+                display: none;
+            }
+            .button.primary {
+                padding: 10px 20px;
+                font-size: 1.2em;
+                color: #fff;
+                background-color: #5cb85c;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            .button.primary:hover {
+                background-color: #4cae4c;
+            }
+            #result-text {
+                margin-top: 20px;
+                font-size: 1.5em;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
+        <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+            <header id="header" class="alt">
+                <span class="logo"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="" /></span>
+                <h1>Identify your SPARK Module before using it!</h1>
+                <p>Upload an image of your SPARK module and follow the tutorial.</p>
+            </header>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="#intro" class="active">Detect your Electronics</a></li>
+                    <li><a href="#first">About SPARK</a></li>
+                    <li><a href="#second">Tutorials</a></li>
+                </ul>
+            </nav>
+
+            <!-- Main -->
+            <div id="main">
+
+                <!-- Introduction -->
+                <section id="intro" class="main">
+                    <div class="spotlight">
+                        <div class="content">
+                            <header class="major">
+                                <h2>Detect your SPARK Electronic</h2>
+                            </header>
+                            <p>1. Drag and drop your electronic module image into the box below.<br>
+                               2. Click on [Detect].<br>
+                               3. Follow the tutorial to know how to use the electronic module!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="container">
+                        <form id="upload-form" enctype="multipart/form-data">
+                            <div id="upload-box" style="background-color: transparent; border:none;">
+                                <p style="padding: 2px; margin-top:3em;">Drag & Drop your image here or click to select a file</p>
+                                <input type="file" id="file-input" name="file" accept="image/*">
+                            </div>
+                            <br>
+                            <ul class="actions special">
+                                <li><button type="submit" class="button primary" style="padding:2px;">DETECT</button></li>
+                            </ul>
+                        </form>
+                    </div>
+
+                </section>
+
+                <!-- Display the prediction result -->
+                <section id="result" class="main special">
+                    <header class="major">
+                        <h2>Detection Result</h2>
+                    </header>
+                    <p id="result-text">No result yet.</p>
+                </section>
+
+                <!-- First Section -->
+                <section id="first" class="main special">
+                    <header class="major">
+                        <h2>About SPARK</h2>
+                    </header>
+                    <ul class="features">
+                        <li>
+                            <span class="icon major style1 fa-user"></span>
+                            <h3>A program for the educators of tomorrow’s inventors</h3>
+                        </li>
+                        <li>
+                            <span class="icon major style3 fa-star"></span>
+                            <h3>Introduce 21st-century skills to learners</h3>
+                        </li>
+                        <li>
+                            <span class="icon major style5 fa-file-code"></span>
+                            <h3>All about physical computing and digital literacy</h3>
+                        </li>
+                    </ul>
+                    <ul class="statistics">
+                        <li class="style1">
+                            <span class="icon solid fa-code-branch"></span>
+                            <strong>33</strong> Educator
+                        </li>
+                        <li class="style5">
+                            <span class="icon fa-folder-open"></span>
+                            <strong>47</strong> Tutorial
+                        </li>
+                        <li class="style3">
+                            <span class="icon solid fa-laptop"></span>
+                            <strong>73</strong> Sessions
+                        </li>
+                        <li class="style2">
+                            <span class="icon solid fa-code-branch"></span>
+                            <strong>370</strong> Learner
+                        </li>
+                        <li class="style4">
+                            <span class="icon solid fa-bolt"></span>
+                            <strong>43</strong> Electronics
+                        </li>
+                    </ul>
+                    <footer class="major">
+                        <ul class="actions special">
+                            <li><a href="https://fablab.bh/spark/" class="button">SPARK WEBSITE</a></li>
+                        </ul>
+                    </footer>
+                </section>
+
+                <!-- Second Section -->
+                <section id="second" class="main special">
+                    <header class="major">
+                        <h2>Tutorials</h2>
+                        <p>IDK if I should place the tutorials here or in the WordPress thingy</p>
+                    </header>
+                    <p class="content">bla bla bla</p>
+                </section>
+
+            </div>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <section>
+                    <h2>Acknowledgment</h2>
+                    <p>This project was completed by Saanjh Balpande and Noor Suwaidan as part of the TechStride Program. We extend our heartfelt thanks to Fab Lab Bahrain, Ms. Aysha, and Mr. Salman for their invaluable support and guidance in bringing this project to fruition. Their assistance and feedback have been immensely appreciated.</p>
+                </section>
+                <section>
+                    <span class="logo"><img src="{{ url_for('static', filename='images/techstride.png') }}" alt="" style="margin-left: 10em; width: 50%; width: 17em;" /></span>
+                    <span class="logo"><img src="{{ url_for('static', filename='images/Neutrinoor.png') }}" alt="" style="margin-left: 10em; width: 50%; width: 17em;" /></span>
+                </section>
+            </footer>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.scrolly.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script>
+            const uploadBox = document.getElementById('upload-box');
+            const fileInput = document.getElementById('file-input');
+
+            uploadBox.addEventListener('click', () => {
+                fileInput.click();
+            });
+
+            uploadBox.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadBox.classList.add('dragover');
+            });
+
+            uploadBox.addEventListener('dragleave', (e) => {
+                uploadBox.classList.remove('dragover');
+            });
+
+            uploadBox.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadBox.classList.remove('dragover');
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    fileInput.files = files; // Set the dropped files to the file input
+                }
+            });
+
+            document.getElementById('upload-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const formData = new FormData();
+                const file = fileInput.files[0];
+                if (file) {
+                    formData.append('file', file);
+
+                    fetch('/upload', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.result) {
+                            document.getElementById('result-text').textContent = data.result;
+                        } else {
+                            document.getElementById('result-text').textContent = 'Failed to detect the electronic module.';
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+                } else {
+                    alert('Please select an image first.');
+                }
+            });
+        </script>
+    </body>
+</html>
